@@ -18,6 +18,10 @@ body {
   background-color: #f3f3f3;
 }
 
+.hidden {
+  display: none;
+}
+
 .header {
   min-width: 100vh;
   padding: 0 3rem;
@@ -232,20 +236,31 @@ p {
   border-radius: 50%;
 }
 
-.operation {
-  margin: 0 auto;
-  position: relative;
+.section-2 {
+  /* position: relative; */
 }
 
-.operation-1 {
+.section-2 .operation {
+  margin: 0 auto;
+  /* position: relative; */
+  /* border: 2px solid black; */
+}
+
+.operation-1,
+.operation-2,
+.operation-3 {
   background-color: white;
-  padding: 4rem 8rem;
+  padding: 6rem 8rem;
   margin: 0 auto;
   width: 70%;
 
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 2rem 4rem;
+  z-index: -1;
+  /* border: 2px solid green; */
+
+  /* position: absolute; */
 }
 
 .operation-description {
@@ -259,10 +274,10 @@ p {
   background: none;
   border: none;
   color: #222;
-  padding: 1.25rem 4rem;
+  padding: 1rem 4.5rem;
   border-radius: 10rem;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 button:focus {
@@ -271,7 +286,7 @@ button:focus {
 }
 
 .btn-instant-transfer {
-  background-color: #ffcb03;
+  background-color: rgb(255, 203, 3);
 }
 
 .btn-instant-loan {
@@ -283,9 +298,92 @@ button:focus {
 }
 
 .tab-btns {
-  left: 50%;
-  transform: translate(-50%) translateY(-2.5rem);
-  position: absolute;
+  /* border: 2px solid yellowgreen; */
   display: flex;
   gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(50%);
+}
+
+.circle-1,
+.circle-2,
+.circle-3 {
+  width: 7rem;
+  height: 7rem;
+}
+
+.circle-1 {
+  background-color: rgba(255, 205, 3, 0.192);
+}
+.circle-2 {
+  background-color: rgb(94, 197, 118, 0.192);
+}
+
+.circle-3 {
+  background-color: rgb(255, 88, 95, 0.192);
+}
+
+/* section-3 */
+
+.slider {
+  position: relative;
+  max-width: 100rem;
+  height: 50rem;
+  margin: 0 auto;
+  /* border: 2px solid rebeccapurple; */
+}
+
+.slider-btn {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  position: absolute;
+}
+
+/* .slider-btn--left {
+  bottom: 50%;
+  left: 3rem;
+} */
+
+.svg-btn {
+  width: 3.4rem;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1.2rem;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+}
+
+.slide-testimonial {
+  border: 2px solid red;
+  width: 65%;
+  position: relative;
+  /* text-align: center; */
+  margin: 10rem auto;
+  padding: 3rem 6rem;
+}
+
+.slide-testimonial::before {
+  content: "\201C";
+  font-size: 20rem;
+  color: #39b385;
+  position: absolute;
+  top: -5.6rem;
+  left: -2rem;
+  line-height: 1;
+}
+
+.slide-heading {
+  font-size: 2.2rem;
+}
+
+.slide-text {
+  font-size: 1.8rem;
+  line-height: 4rem;
 }
