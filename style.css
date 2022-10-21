@@ -18,10 +18,6 @@ body {
   background-color: #f3f3f3;
 }
 
-.hidden {
-  display: none;
-}
-
 .header {
   min-width: 100vh;
   padding: 0 3rem;
@@ -386,4 +382,8 @@ button:focus {
 .slide-text {
   font-size: 1.8rem;
   line-height: 4rem;
+}
+
+.hidden {
+  display: none;
 }
