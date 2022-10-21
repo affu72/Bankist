@@ -259,6 +259,10 @@ p {
   /* position: absolute; */
 }
 
+.operation-heading {
+  font-size: 2.2rem;
+}
+
 .operation-description {
   font-size: 1.6rem;
   grid-column: 2;
