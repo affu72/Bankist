@@ -130,3 +130,27 @@ getEle("nav-links").addEventListener("click", function (e) {
 //   this.style.backgroundColor = randdomColor();
 //   console.log("nav", e.target, e.currentTarget);
 // });
+
+const h1 = getEle("hero-heading");
+
+//going downward, selecting child elemetn
+// 1. querySelectror & querySelectorAll
+// 2. childeNodes
+// 3. children
+// 4. fist and last child
+
+console.log(h1.querySelectorAll(".highlight"));
+console.log(h1.childNodes); // direct child node
+
+console.log(h1.children);
+
+// console.log(h1.firstElementChild);
+h1.firstElementChild.style.color = "white";
+h1.lastElementChild.style.color = "orange";
+
+// going upward
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+h1.closest(".header").style.backgroundColor = "yellow";
+console.log(h1.closest("html"));

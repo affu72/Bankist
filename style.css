@@ -108,7 +108,7 @@ a:visited {
   margin: 0;
 }
 
-.negative {
+.highlight {
   background: linear-gradient(to top left, #39b385, #9be15d);
   display: inline-block;
   padding: 0.4rem 1rem;
