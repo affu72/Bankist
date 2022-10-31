@@ -146,11 +146,11 @@ console.log(h1.children);
 
 // console.log(h1.firstElementChild);
 h1.firstElementChild.style.color = "white";
-h1.lastElementChild.style.color = "orange";
+// h1.lastElementChild.style.color = "orange";
 
 // going upward
 console.log(h1.parentNode);
 console.log(h1.parentElement);
 
-h1.closest(".header").style.backgroundColor = "yellow";
+// h1.closest(".header").style.backgroundColor = "yellow";
 console.log(h1.closest("html"));
