@@ -39,6 +39,10 @@ header.prepend(msg); // first child of header
 //header.after(msg); //after header as a sibling
 
 //deleteing elements
+
+// document.body.style.overflow = "hidden";
+// header.style.opacity = 0.1;
+
 document
   .querySelector(".btn-close-cookie")
   .addEventListener("click", function (e) {
@@ -164,17 +168,45 @@ getEle("tab-btns").addEventListener("click", function (e) {
   e.preventDefault();
 
   if (!e.target.classList.contains("tab-btn")) return;
+
   const tabs = [...e.target.parentElement.children];
 
   tabs.forEach((el) => el.classList.remove("active-tab-btn"));
   operations.forEach((el) => el.classList.add("hidden"));
 
-  if (e.target.classList.contains("tab-btn")) {
-    e.target.classList.add("active-tab-btn");
+  // if (e.target.classList.contains("tab-btn")) {
+  e.target.classList.add("active-tab-btn");
 
-    // const data = e.target.getAttribute("data-tab");
-    const data = e.target.dataset.tab;
+  // const data = e.target.getAttribute("data-tab");
+  const data = e.target.dataset.tab;
 
-    document.querySelector(`.operation-${data}`).classList.remove("hidden");
+  document.querySelector(`.operation-${data}`).classList.remove("hidden");
+  // }
+});
+
+const fadeOutEffect = function (e) {
+  if (e.target.classList.contains("nav-link")) {
+    const hoverLink = e.target;
+    const siblingLinks = hoverLink
+      .closest(".header-nav")
+      .querySelectorAll(".nav-link"); // ned to select all the siblings
+    const logo = hoverLink.closest(".header-nav").querySelector("img");
+
+    siblingLinks.forEach((el) => {
+      if (el !== hoverLink) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
   }
+};
+
+getEle("header-nav").addEventListener("mouseover", fadeOutEffect.bind(0.5));
+
+getEle("header-nav").addEventListener("mouseout", fadeOutEffect.bind(1));
+
+//sticky navigation bar, scroll event
+const initialCord = section1.getBoundingClientRect();
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= initialCord.top)
+    getEle("header-nav").classList.add("sticky");
+  else getEle("header-nav").classList.remove("sticky");
 });
