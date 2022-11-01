@@ -149,8 +149,32 @@ h1.firstElementChild.style.color = "white";
 // h1.lastElementChild.style.color = "orange";
 
 // going upward
-console.log(h1.parentNode);
-console.log(h1.parentElement);
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
 
 // h1.closest(".header").style.backgroundColor = "yellow";
 console.log(h1.closest("html"));
+
+//tabed component
+
+// const tabs = document.querySelectorAll(".tab-btn");
+const operations = document.querySelectorAll(".operation");
+
+getEle("tab-btns").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (!e.target.classList.contains("tab-btn")) return;
+  const tabs = [...e.target.parentElement.children];
+
+  tabs.forEach((el) => el.classList.remove("active-tab-btn"));
+  operations.forEach((el) => el.classList.add("hidden"));
+
+  if (e.target.classList.contains("tab-btn")) {
+    e.target.classList.add("active-tab-btn");
+
+    // const data = e.target.getAttribute("data-tab");
+    const data = e.target.dataset.tab;
+
+    document.querySelector(`.operation-${data}`).classList.remove("hidden");
+  }
+});

@@ -272,6 +272,7 @@ p {
   border-radius: 10rem;
   font-size: 1.6rem;
   font-weight: 550;
+  transition: all 300ms;
 }
 
 button:focus {
@@ -468,6 +469,10 @@ div {
   font-weight: 500;
   font-size: 1.6rem;
   border: none;
+}
+
+.active-tab-btn {
+  transform: translateY(-7px);
 }
 
 .hidden {
