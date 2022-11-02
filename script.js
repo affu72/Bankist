@@ -1,18 +1,18 @@
 const getEle = (cls) => document.querySelector(`.${cls}`);
 
-console.log(document.documentElement);
-console.log(document.body);
-console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body);
+// console.log(document.head);
 const header = document.querySelector(".header");
 
 const allSections = document.querySelectorAll(".section");
 
-console.log(allSections);
+// console.log(allSections);
 
 const btns = document.getElementsByTagName("button"); // live collections
-console.log(btns);
+// console.log(btns);
 
-console.log(document.getElementsByClassName("btn")); // live collection
+// console.log(document.getElementsByClassName("btn")); // live collection
 
 //creating elemenet
 const msg = document.createElement("div");
@@ -27,7 +27,7 @@ msg.classList.add("cookie-msg");
 msg.innerHTML = `We use cookies for improved functionality and analytics.<button class="btn btn-close-cookie">Got it!</button>`;
 
 //adding created element to the dom
-header.prepend(msg); // first child of header
+//header.prepend(msg); // first child of header
 
 //header.append(msg); //as last child of header
 
@@ -43,13 +43,13 @@ header.prepend(msg); // first child of header
 // document.body.style.overflow = "hidden";
 // header.style.opacity = 0.1;
 
-document
-  .querySelector(".btn-close-cookie")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    // msg.remove();
-    msg.parentElement.removeChild(msg);
-  });
+// document
+//   .querySelector(".btn-close-cookie")
+//   .addEventListener("click", function (e) {
+//     e.preventDefault();
+//     // msg.remove();
+//     msg.parentElement.removeChild(msg);
+//   });
 
 //remove() method is new, back then we use to delete child elemet by selecting parentElement first.
 
@@ -57,24 +57,24 @@ document
 msg.style.backgroundColor = "#37383d";
 msg.style.width = "105%";
 
-console.log(msg.style.color); // will get nothing
+// console.log(msg.style.color); // will get nothing
 
-console.log(msg.style.backgroundColor); // because that is inline
+// console.log(msg.style.backgroundColor); // because that is inline
 
-console.log(getComputedStyle(msg).height);
+// console.log(getComputedStyle(msg).height);
 
 msg.style.height =
   Number.parseFloat(getComputedStyle(msg).height, 10) + 20 + "px";
 
 //attribute
 const logo = getEle("logo");
-console.log(logo);
-console.log(logo.src);
-console.log(logo.alt);
+// console.log(logo);
+// console.log(logo.src);
+// console.log(logo.alt);
 logo.alt = "logo";
-console.log(logo.alt);
+// console.log(logo.alt);
 // logo.src = "/img/img-3.jpg";
-console.log(logo.classList.contains("logo"));
+// console.log(logo.classList.contains("logo"));
 
 //smooth scrollling - 1 old way
 
@@ -83,17 +83,17 @@ const section1 = getEle("section-1");
 
 btnScrollTo.addEventListener("click", function (e) {
   const s1Coord = section1.getBoundingClientRect();
-  console.log(s1Coord);
+  // console.log(s1Coord);
 
   // console.log(e);
 
-  console.log(e.target.getBoundingClientRect());
+  // console.log(e.target.getBoundingClientRect());
 
   // console.log("current Scroll", window.pageXOffset, window.pageYOffset);
-  console.log("current Scroll", window.scrollX, window.scrollY);
+  // console.log("current Scroll", window.scrollX, window.scrollY);
 
-  console.log(document.documentElement.clientHeight);
-  console.log(document.documentElement.clientWidth);
+  // console.log(document.documentElement.clientHeight);
+  // console.log(document.documentElement.clientWidth);
 
   //scrolling
   // window.scrollTo(s1Coord.left + window.scrollX, s1Coord.top + window.scrollY);
@@ -114,7 +114,7 @@ const randomInt = (min, max) =>
 const randdomColor = () =>
   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
-console.log(randdomColor());
+// console.log(randdomColor());
 
 // getEle("nav-link").addEventListener("click", function (e) {
 //   this.style.backgroundColor = randdomColor();
@@ -123,7 +123,7 @@ console.log(randdomColor());
 
 getEle("nav-links").addEventListener("click", function (e) {
   e.preventDefault();
-  console.log(e.target);
+  // console.log(e.target);
   if (e.target.classList.contains("nav-link")) {
     const id = e.target.getAttribute("href");
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
@@ -143,10 +143,10 @@ const h1 = getEle("hero-heading");
 // 3. children
 // 4. fist and last child
 
-console.log(h1.querySelectorAll(".highlight"));
-console.log(h1.childNodes); // direct child node
+// console.log(h1.querySelectorAll(".highlight"));
+// console.log(h1.childNodes); // direct child node
 
-console.log(h1.children);
+// console.log(h1.children);
 
 // console.log(h1.firstElementChild);
 h1.firstElementChild.style.color = "white";
@@ -157,7 +157,7 @@ h1.firstElementChild.style.color = "white";
 // console.log(h1.parentElement);
 
 // h1.closest(".header").style.backgroundColor = "yellow";
-console.log(h1.closest("html"));
+// console.log(h1.closest("html"));
 
 //tabed component
 
@@ -203,10 +203,90 @@ getEle("header-nav").addEventListener("mouseover", fadeOutEffect.bind(0.5));
 
 getEle("header-nav").addEventListener("mouseout", fadeOutEffect.bind(1));
 
-//sticky navigation bar, scroll event
+//sticky navigation-bar, scroll event
 const initialCord = section1.getBoundingClientRect();
 window.addEventListener("scroll", function () {
   if (window.scrollY >= initialCord.top)
     getEle("header-nav").classList.add("sticky");
   else getEle("header-nav").classList.remove("sticky");
 });
+
+// intersection obeserver
+// const obsCallBack = function (entries, obeserver) {
+//   entries.forEach((entry) => {
+//     console.log(entries);
+//   });
+// };
+
+// const obsOption = {
+//   root: null, // for entire viwport
+//   // threshold: 0.1,
+//   threshold: [0, 0.1],
+// };
+
+// const observer = new IntersectionObserver(obsCallBack, obsOption);
+// observer.observe(section1);
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    getEle("header-nav").classList.add("sticky");
+  } else {
+    getEle("header-nav").classList.remove("sticky");
+  }
+};
+
+const navHeight = getEle("header-nav").getBoundingClientRect().height;
+
+const headerObeserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `${-navHeight}px`,
+});
+headerObeserver.observe(header);
+
+//revel on scroll
+
+const revelSection = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove("section-hidden");
+      observer.unobserve(entry.target);
+    }
+  });
+};
+
+const sectionObserver = new IntersectionObserver(revelSection, {
+  root: null,
+  threshold: 0.25,
+});
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add("section-hidden");
+});
+
+//Lazy loaing images
+const imgTarget = document.querySelectorAll("img[data-src]");
+console.log(imgTarget);
+
+const loadImage = function (entries, obeserver) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  //replace src with dataScr
+  // console.log(entry.target.dataset.src);
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", () => {
+    entry.target.classList.remove("lazy-img");
+  });
+
+  obeserver.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImage, {
+  root: null,
+  threshold: 0,
+});
+
+imgTarget.forEach((img) => imgObserver.observe(img));

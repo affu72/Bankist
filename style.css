@@ -60,7 +60,8 @@ body {
   /* column-gap: 6rem; */
   /* column-gap: rem; */
   /* padding: 2rem 0 12.3rem 0; */
-  padding: 7.45rem 4rem;
+  /* padding: 6rem 4rem 9rem 4rem; */
+  padding: 9rem;
 }
 
 .nav-link-btn {
@@ -155,6 +156,7 @@ a:hover {
 .section {
   border-top: 1px solid #ddd;
   padding: 8rem 2rem;
+  /* border: 2px solid red; */
 
   /* display: flex; */
   /* flex-direction: column; */
@@ -189,7 +191,7 @@ a:hover {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   justify-items: center;
-  gap: 4rem;
+  gap: 7rem;
 }
 
 .features-description {
@@ -483,6 +485,11 @@ div {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.section-hidden {
+  opacity: 0;
+  transform: translateY(9rem);
+  transition: transform 1s;
+}
 .active-tab-btn {
   transform: translateY(-7px);
 }
