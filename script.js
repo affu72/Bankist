@@ -1,11 +1,10 @@
 const getEle = (cls) => document.querySelector(`.${cls}`);
+const header = document.querySelector(".header");
+const allSections = document.querySelectorAll(".section");
 
 // console.log(document.documentElement);
 // console.log(document.body);
 // console.log(document.head);
-const header = document.querySelector(".header");
-
-const allSections = document.querySelectorAll(".section");
 
 // console.log(allSections);
 
@@ -179,7 +178,6 @@ getEle("tab-btns").addEventListener("click", function (e) {
 
   // const data = e.target.getAttribute("data-tab");
   const data = e.target.dataset.tab;
-
   document.querySelector(`.operation-${data}`).classList.remove("hidden");
   // }
 });
@@ -204,12 +202,12 @@ getEle("header-nav").addEventListener("mouseover", fadeOutEffect.bind(0.5));
 getEle("header-nav").addEventListener("mouseout", fadeOutEffect.bind(1));
 
 //sticky navigation-bar, scroll event
-const initialCord = section1.getBoundingClientRect();
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= initialCord.top)
-    getEle("header-nav").classList.add("sticky");
-  else getEle("header-nav").classList.remove("sticky");
-});
+// const initialCord = section1.getBoundingClientRect();
+// window.addEventListener("scroll", function () {
+//   if (window.scrollY >= initialCord.top)
+//     getEle("header-nav").classList.add("sticky");
+//   else getEle("header-nav").classList.remove("sticky");
+// });
 
 // intersection obeserver
 // const obsCallBack = function (entries, obeserver) {
@@ -229,6 +227,7 @@ window.addEventListener("scroll", function () {
 
 const stickyNav = function (entries) {
   const [entry] = entries;
+  console.log(entry);
   if (!entry.isIntersecting) {
     getEle("header-nav").classList.add("sticky");
   } else {
@@ -245,9 +244,8 @@ const headerObeserver = new IntersectionObserver(stickyNav, {
 });
 headerObeserver.observe(header);
 
-//revel on scroll
-
-const revelSection = function (entries, observer) {
+// reveal on scroll
+const revealSection = function (entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.remove("section-hidden");
@@ -256,9 +254,9 @@ const revelSection = function (entries, observer) {
   });
 };
 
-const sectionObserver = new IntersectionObserver(revelSection, {
+const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: 0.25,
+  threshold: 0.15,
 });
 
 allSections.forEach((section) => {
@@ -287,6 +285,23 @@ const loadImage = function (entries, obeserver) {
 const imgObserver = new IntersectionObserver(loadImage, {
   root: null,
   threshold: 0,
+  rootMargin: "10px",
 });
 
 imgTarget.forEach((img) => imgObserver.observe(img));
+
+//events
+
+// document.addEventListener("DOMContentLoaded", function (e) {
+//   console.log("html parsed and dom tree built!", e);
+// });
+
+// window.addEventListener("load", function () {
+//   console.log("all the documents and images are ready");
+// });
+
+window.addEventListener("beforeunload", function (e) {
+  // e.preventDefault();
+  console.log(e);
+  e.returnValue = "";
+});
