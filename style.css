@@ -455,12 +455,12 @@ div {
 .section-4 {
   background-color: #37383d;
   color: white;
+  text-align: center;
 }
 
 .footer-action--btn {
   display: inline-block;
   padding: 1.5rem 10rem;
-  margin: 0 40rem;
   font-size: 2rem;
 }
 
